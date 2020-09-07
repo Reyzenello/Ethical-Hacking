@@ -1,0 +1,68 @@
+Forensic:
+
+ProDiscover 
+Action--> Capture Image 
+--ADD + compila i campi 
+
+Generare il report bisogna per forza riavviare il pc 
+
+kali:
+gparted 
+
+fdisk -l 
+mdir /mnt/sdb1
+leafpad /etc/fstap
+
+inserire nell' ultima riga 
+/dev/sdb1  /mnt/sdb1  vfat  defaults  0  0
+
+gparted --> mount on /mnt/sdb1
+
+cd /mnt/sdb1
+mkdir case01
+cd case01
+
+dd if=/dev/sdb1 conv=sync,noerror bs=64K | gzip -c | split -b 2000m - /system_drive_backup.img.gz
+
+prendiamo il file generato ovvero system_drive_backup.img.gz e lo inseriamo nella cartella /mnt/sdb1/case01
+
+gparted 
+
+unmount dev/sdb1
+
+sudo reboot 
+
+
+analizzare email:
+
+osforensics 
+
+Create Case --> Compila 
+
+Manage Case --> Add Device 
+
+File Name Search --> charlie*
+
+Create Index 
+
+------------------------------------------
+FORENSIC SU UNA VM 
+Manage case --> New Case --> compilare 
+
+Mount Drive Image --> Mount New --> selezioniamo l'immagine --> use an entire image 
+
+Manage case *again* --> Add Device --> Disco C:
+
+File System Browser --> il gioco è fatto 
+
+
+ 
+
+
+FTK Imager 
+
+Add Evidence Item
+
+
+
+ricordarmi che ad aprile devo staccare il revenue di cybrary  
