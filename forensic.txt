@@ -63,7 +63,7 @@ File System Browser --> <and there you go ;3>
 
 FTK Imager 
 (FTK stands for Forensic Toolkit: should i use that for the usual forensic ? Of course you do! Is one of the most famous tool that i used when i have done forensic)
-here is the download:https://accessdata.com/product-download
+here is the download:https://accessdata.com/product-download.
 
 Add Evidence Item
  
