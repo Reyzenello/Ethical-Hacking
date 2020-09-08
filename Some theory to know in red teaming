@@ -3,7 +3,7 @@ War dialer
 Proxy Server
 Anonymizer 
 
-As Database Manager for a local company, Mick has a lot of responsibilities. He decides to set up remote control software on his work machine so that he will be able to login from home or otherwise. After installing the connection, he connects a modem to an otherwise-unused fax line. With no authentication to enable him to set a password for a host connection to the remote connection, Mick’s remote connection will be accessible to for anyone to connect to his host system. Which of the below attacks can be performed on Mick’s remote connection?
+As Database Manager for a local company, Mick has a lot of responsibilities. He decides to set up remote control software on his work machine so that he will be able to login from home or otherwise. After installing the connection, he connects a modem to an otherwise-unused fax line. With no authentication to enable him to set a password for a host connection to the remote connection, Mickâ€™s remote connection will be accessible to for anyone to connect to his host system. Which of the below attacks can be performed on Mickâ€™s remote connection?
 
 War dialing
 
@@ -57,7 +57,7 @@ Because Java uses a sandbox to isolate code, it is not vulnerable to buffer over
 
 How can an attacker discover what rules have been set up on a specific gateway?
 
-Firewalking (attraveso hping2 può scoprire le regole dello specifico gateway )
+Firewalking (attraveso hping2 puÃ² scoprire le regole dello specifico gateway )
 
 Which of the below statements are true about N-tier architecture?
 Each layer must be able to function on a physically independent system 
@@ -79,7 +79,7 @@ BackStealth
 Which of the below attacks uses a pre-calculated hash table, a structure that maps keys to values, to retrieve plain text passwords?
 Rainbow attack
 
-Scott is a professional Ethical Hacker and is responsible for security testing of a company’s website. He realizes that UDP port 137 of the company’s web server is open. Assuming that the Network Administrator of the company did not modify the default port values of any services, which of the below services will be found to be running on UDP 137?
+Scott is a professional Ethical Hacker and is responsible for security testing of a companyâ€™s website. He realizes that UDP port 137 of the companyâ€™s web server is open. Assuming that the Network Administrator of the company did not modify the default port values of any services, which of the below services will be found to be running on UDP 137?
 NetBIOS
 
 Masquerading (attempting to impersonate a person or another machine), providing false information, or denying the existence of a transaction or event is classified as which of the below forms of attack?
@@ -108,18 +108,18 @@ Session sidejacking ( an attacker will perform packet sniffing to access and ana
 Which of the below methods of information discovery is used by governmental authorities and the police?
 Wiretapping 
 
-Aaron’s server is Linux-based, and he wants to use a tool to filter packets by MAC address and TCP header flags. One of the below tools will work for this task. Which one?
+Aaronâ€™s server is Linux-based, and he wants to use a tool to filter packets by MAC address and TCP header flags. One of the below tools will work for this task. Which one?
 IPTables
 
 Which of the below tools can be used to hide secret data within a text file?
 Snow.exe
 
 How can a covert channel be utilized (select all that apply)?
-a. To transfer files between the hacker’s system and a target system, or from the target system to the hacker’s machine.
+a. To transfer files between the hackerâ€™s system and a target system, or from the target system to the hackerâ€™s machine.
 
 b. To execute/launch applications and processes on the target system.
 
-c. To avail the hacker of an interactive, remote control from the hacker’s machine to the target machine.
+c. To avail the hacker of an interactive, remote control from the hackerâ€™s machine to the target machine.
 
 Which of the below netstat command parameters would display all active TCP connections as well as the TCP and UDP ports in a listening state?
 -a
@@ -138,7 +138,7 @@ Which of the below constitute methods that could be used to protect against sess
 Regenerating a session id after the user has successfully logged in
 Encrypting any and all data transmitted between the parties, especially the session key.
 
-d. Alter the session cookie’s value with each request.
+d. Alter the session cookieâ€™s value with each request.
 
 Ron is trying to implement key countermeasures to protect a web application against the most common attacks carried out on web applications. Which of the below represents a basic code check that will protect against the entries of malicious users?
 Input validation
@@ -146,7 +146,7 @@ Input validation
 You work for a financial company. Your security department is requiring developers to shield their applications from SQL injections. Client supplied data must never be able to alter the syntax of any SQL statements. All application-required SQL statements need to be maintained within stored procedures on a database server. However, your company is concerned about the uptick in attack frequency and wants to know whether further defensive security scanning tools would be appropriate. You reply in the affirmative, and suggest one of the below tools. What would you recommend?
 Acunetix 
 
-An executive in Mallory’s company has complaints about odd behavior on her PDA. After investigation, Mallory determines that a trusted device is copying data off of the executive’s PDA. The executive admits that the strange behavior began shortly after she accepted an e-business card from an unknown individual. What kind of attack does this represent?
+An executive in Malloryâ€™s company has complaints about odd behavior on her PDA. After investigation, Mallory determines that a trusted device is copying data off of the executiveâ€™s PDA. The executive admits that the strange behavior began shortly after she accepted an e-business card from an unknown individual. What kind of attack does this represent?
 Bluesnarfing
 
 Which of the below protocols is used for properly functioning Internet Relay Chat (IRC) sessions?
