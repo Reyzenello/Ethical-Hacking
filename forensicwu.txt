@@ -1,19 +1,21 @@
 Forensic:
 
-ProDiscover 
+ProDiscover is a forensic tool.. i mainly used this to capture the state of the device but for more info you should definetly check out this: https://www.prodiscover.com/
 Action--> Capture Image 
---ADD + compila i campi 
+--ADD + <fill out the fields> 
 
-Generare il report bisogna per forza riavviare il pc 
+To generate a report you must restart the device 
 
-kali:
+Forensic on kali:
+
+-kali:
 gparted 
 
 fdisk -l 
 mdir /mnt/sdb1
 leafpad /etc/fstap
 
-inserire nell' ultima riga 
+insert in the last row:
 /dev/sdb1  /mnt/sdb1  vfat  defaults  0  0
 
 gparted --> mount on /mnt/sdb1
@@ -24,7 +26,7 @@ cd case01
 
 dd if=/dev/sdb1 conv=sync,noerror bs=64K | gzip -c | split -b 2000m - /system_drive_backup.img.gz
 
-prendiamo il file generato ovvero system_drive_backup.img.gz e lo inseriamo nella cartella /mnt/sdb1/case01
+then we need to take the file so system_drive_backup.img.gz and we will put into /mnt/sdb1/case01
 
 gparted 
 
@@ -33,11 +35,11 @@ unmount dev/sdb1
 sudo reboot 
 
 
-analizzare email:
+Forensic (Email):
 
 osforensics 
 
-Create Case --> Compila 
+Create Case --> <fill the fields> 
 
 Manage Case --> Add Device 
 
@@ -46,23 +48,21 @@ File Name Search --> charlie*
 Create Index 
 
 ------------------------------------------
-FORENSIC SU UNA VM 
-Manage case --> New Case --> compilare 
+FORENSIC on a Virtual Machine
+Manage case --> New Case --> <fill the fields> 
 
-Mount Drive Image --> Mount New --> selezioniamo l'immagine --> use an entire image 
+Mount Drive Image --> Mount New --> <pick the executeable one> --> use an entire image 
 
 Manage case *again* --> Add Device --> Disco C:
 
-File System Browser --> il gioco è fatto 
+File System Browser --> <and there you go ;3> 
 
 
  
 
 
 FTK Imager 
+(FTK stands for Forensic Toolkit: should i use that for the usual forensic ? Of course you do! Is one of the most famous tool that i used when i have done forensic)
 
 Add Evidence Item
-
-
-
-ricordarmi che ad aprile devo staccare il revenue di cybrary  
+ 
